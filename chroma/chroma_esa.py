@@ -12,7 +12,7 @@ old_settings = termios.tcgetattr(sys.stdin)
 
 rows = 1280
 cols = 960
-cap = cv2.VideoCapture(0) #use external cam
+cap = cv2.VideoCapture(1) #use external cam
 #cap = cv2.VideoCapture('video.mp4')
 
 ret, frame = cap.read()
