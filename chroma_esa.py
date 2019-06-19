@@ -78,25 +78,25 @@ while(True):
 
     k = cv2.waitKey(33)
     if k == ord('1'):#1048624: #ord('a'): #0
-       img_back = cv2.imread('fondo3.png')
+       img_back = cv2.imread('esa/fondo3.png')
        background = img_back[0:cols, 0:rows ]
     elif k == ord('2'):#11048625: #ord('a'): #1
-       img_back = cv2.imread('insectos3.png')
+       img_back = cv2.imread('esa/insectos3.png')
        background = img_back[0:cols, 0:rows ]
     elif k == ord('3'):#11048626:#ord('b'): #2
-       img_back = cv2.imread('romeral3.png')
+       img_back = cv2.imread('esa/romeral3.png')
        background = img_back[0:cols, 0:rows ]
     elif k == ord('4'):#11048626:#ord('b'): #2
-       img_back = cv2.imread('romeral3.png')
+       img_back = cv2.imread('esa/romeral3.png')
        background = img_back[0:cols, 0:rows ]
     elif k == ord('5'):#11048627:#ord('c'): #3
-        img_back = cv2.imread('concavenator3.png')
+        img_back = cv2.imread('esa/concavenator3.png')
         background = img_back[0:cols, 0:rows ]
     elif k == ord('6'):#11048628:#ord('d'): #4
-        img_back = cv2.imread('Aragosaurus3.png')
+        img_back = cv2.imread('esa/Aragosaurus3.png')
         background = img_back[0:cols, 0:rows ]
     elif k == ord('7'):#11048629:#ord('e'): #5
-        img_back = cv2.imread('titanosaurus3.png')
+        img_back = cv2.imread('esa/titanosaurus3.png')
         background = img_back[0:cols, 0:rows ]
     elif k == ord('8'):#11048630:#ord('f'): #6
         img_back = cv2.imread('esa/PIA22107-1024x576.jpg')
