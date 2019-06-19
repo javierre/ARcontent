@@ -1,2 +1,6 @@
 # ARcontent
-AR content
+Check the Wiki for more information:
+
+[Wiki](wiki)
+
+
