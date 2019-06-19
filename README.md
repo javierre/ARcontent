@@ -1,6 +1,6 @@
 # ARcontent
 Check the Wiki for more information:
 
-[Wiki](./wiki)
+[Wiki](../tree/master/wiki)
 
 
