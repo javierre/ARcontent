@@ -9,6 +9,7 @@ from xml.dom import minidom
 # checkerboard Dimensions
 cbrow = 9
 cbcol = 7
+printmarker3dPOSE = True
 
 imagefolder='images'
 #Reads items
@@ -176,7 +177,7 @@ while (True):
     if np.all(ids != None):
 
         # estimate pose of each marker and return the values
-        # rvet and tvec-different from camera coefficients
+        # rvec and tvec-different from camera coefficients
         rvec, tvec ,_ = aruco.estimatePoseSingleMarkers(corners, markerssize, mtx, dist)
         #(rvec-tvec).any() # get rid of that nasty numpy value array error
 
@@ -199,6 +200,9 @@ while (True):
             axis = np.float32([[0,0,0],[length,0,0], [0,length,0], [0,0,length]]).reshape(-1,3)
             imgpts, jac= cv2.projectPoints(axis, rvec[i], tvec[i], mtx, dist)
             imgpts = np.int32(imgpts).reshape(-1,2)
+
+            if printmarker3dPOSE:
+                print("Marker "+str(ids[i][0])+" tvec: "+str(tvec[i])+" rvec: "+str(rvec[i]))
 
             if newfilR=="BGR":
                 color=markerelem.color
