@@ -2,9 +2,9 @@
     <items>
       <markerssize size="0.10"></markerssize> <!-- General Size, in case no size is defined for each marker -->
 
-      <marker name="4" markerid="4" file="BGR" color="(255, 0, 0)"  scale="" size="">marker</marker>
+      <marker name="0" markerid="0" file="BGR" color="(255, 0, 0)"  scale="" size="">marker</marker>
       <marker name="1" markerid="1" file="green"  scale="" size="">marker</marker>
-      <marker name="4" markerid="40" file="scale-solar-system-for-23x35-poster-labeled.jpg"  scale="3">marker</marker>
+      <marker name="4" markerid="4" file="scale-solar-system-for-23x35-poster-labeled.jpg"  scale="3">marker</marker>
       <marker name="3" markerid="3" file="BGR" color="blue">marker</marker>
       <marker name="5" markerid="5" file="BGR" color="red"  scale="" size="">marker</marker>
 
@@ -14,7 +14,7 @@
       <marker name="2" markerid="2" file="darth-maul-head.png"  scale="4">marker1</marker>
 
 
-        <marker name="6" markerid="160" file="darthvader.jpg"  scale="">marker16</marker>
+      <marker name="6" markerid="160" file="darthvader.jpg"  scale="">marker16</marker>
 
 
 
