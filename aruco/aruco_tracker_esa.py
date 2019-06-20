@@ -148,6 +148,13 @@ cv2.namedWindow("frame", cv2.WND_PROP_FULLSCREEN)
 while (True):
     ret, frame = cap.read()
 
+
+
+    #frame=cv2.imread("images/boardsnoaxes.png", cv2.IMREAD_UNCHANGED) #you can process images offline
+
+
+
+
     # operations on the frame
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -287,7 +294,8 @@ while (True):
                 corner_=corner_2
 
 
-                pts_dst = np.array([corner_[0]-400-int(2*size[1])/scale,corner_[1]-400-int(2*size[1])/scale,corner_[2]-400-int(2*size[1])/scale,corner_[3]-400-int(2*size[1])/scale])#get_four_points(im_dst)
+                pts_dst = np.array([corner_[0]-400-int(2*size[1])/scale,corner_[1]-400-int(2*size[1])/scale,corner_[2]-400-int(2*size[2])/scale,corner_[3]-400-int(2*size[2])/scale])
+                #get_four_points(im_dst)
 
                 pts_dst = np.array([corner_[0],corner_[1],corner_[2],corner_[3]])#get_four_points(im_dst)
 
