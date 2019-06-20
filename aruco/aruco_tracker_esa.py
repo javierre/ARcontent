@@ -6,13 +6,17 @@ import glob
 from xml.dom import minidom
 
 
+# checkerboard Dimensions
+cbrow = 9
+cbcol = 7
+
 imagefolder='images'
 #Reads items
 mydoc = minidom.parse('items.xml')
 items = mydoc.getElementsByTagName('marker')
 MarkersSize = mydoc.getElementsByTagName('markerssize')
 
-markerssize = 0.10 # default
+markerssize = 0.10 # meters by default
 if MarkersSize!=[]:
     if 'size' in MarkersSize[0].attributes:
         markerssize=float(MarkersSize[0].attributes['size'].value)
@@ -84,20 +88,8 @@ def draw(img, corners, imgpts):
 
 cap = cv2.VideoCapture(1)
 
-####---------------------- CALIBRATION ---------------------------
-# termination criteria for the iterative algorithm
-criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 
-# prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
-# checkerboard of size (7 x 6) is used
-objp = np.zeros((6*7,3), np.float32)
-objp[:,:2] = np.mgrid[0:7,0:6].T.reshape(-1,2)
-
-# arrays to store object points and image points from all the images.
-objpoints = [] # 3d point in real world space
-imgpoints = [] # 2d points in image plane.
-
-
+# File storage in OpenCV
 cv_file = cv2.FileStorage("calib_images/test.yaml", cv2.FILE_STORAGE_READ)
 
 # Note : we also have to specify the type
@@ -106,7 +98,24 @@ cv_file = cv2.FileStorage("calib_images/test.yaml", cv2.FILE_STORAGE_READ)
 mtx = cv_file.getNode("camera_matrix").mat()
 dist = cv_file.getNode("dist_coeff").mat()
 
+
 '''
+####---------------------- CALIBRATION ---------------------------
+# termination criteria for the iterative algorithm
+criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
+
+# prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
+# checkerboard of size (7 x 9) is used
+objp = np.zeros((cbrow*cbcol,3), np.float32)
+objp[:,:2] = np.mgrid[0:cbcol,0:cbrow].T.reshape(-1,2)
+
+# arrays to store object points and image points from all the images.
+objpoints = [] # 3d point in real world space
+imgpoints = [] # 2d points in image plane.
+
+
+
+
 # iterating through all calibration images
 # in the folder
 images = glob.glob('calib_images/*.png')
@@ -116,7 +125,7 @@ for fname in images:
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
     # find the chess board (calibration pattern) corners
-    ret, corners = cv2.findChessboardCorners(gray, (7,9),None)
+    ret, corners = cv2.findChessboardCorners(gray, (cbcol,cbrow),None)
 
     # if calibration pattern is found, add object points,
     # image points (after refining them)
@@ -128,7 +137,7 @@ for fname in images:
         imgpoints.append(corners2)
 
         # Draw and display the corners
-        img = cv2.drawChessboardCorners(img, (7,9), corners2,ret)
+        img = cv2.drawChessboardCorners(img, (cbcol,cbrow), corners2,ret)
 
 
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1],None,None)
@@ -174,7 +183,10 @@ while (True):
             #print (ids[i][0])
 
             markerelem = getRepl(ids[i][0])
-            newfilR = imagefolder+'/'+markerelem.file
+            if markerelem.file==-1 or markerelem.file=='BGR':
+                newfilR=-1
+            else:
+                newfilR = str(imagefolder)+'/'+str(markerelem.file)
 
 
             axis = np.float32([[0,0,0],[length,0,0], [0,length,0], [0,0,length]]).reshape(-1,3)
@@ -211,6 +223,7 @@ while (True):
                     scale=1
 
                 #im_src = cv2.imread(newfilR);
+                print(newfilR)
                 imreal = cv2.imread(newfilR, cv2.IMREAD_UNCHANGED);
                 im_src=imreal[:,:,:3]
 
