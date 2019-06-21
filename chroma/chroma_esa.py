@@ -20,7 +20,7 @@ print(frame.shape)
 
 
 #img_back = cv2.imread('fondo3.png')
-img_back = cv2.imread('titanosaurus3.png')
+img_back = cv2.imread('esa/titanosaurus3.png')
 background = img_back[0:cols, 0:rows ]
 
 thresh = 230
