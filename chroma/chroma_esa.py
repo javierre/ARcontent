@@ -16,7 +16,7 @@ cap = cv2.VideoCapture(1) #use external cam
 #cap = cv2.VideoCapture('video.mp4')
 
 ret, frame = cap.read()
-print(frame.shape)
+
 
 
 #img_back = cv2.imread('fondo3.png')
