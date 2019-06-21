@@ -4,17 +4,17 @@
 
       <marker name="0" markerid="0" file="BGR" color="(255, 0, 0)"  scale="" size="">marker</marker>
       <marker name="1" markerid="1" file="BGR"  color="green" scale="" size="">marker</marker>
-      <marker name="40" markerid="40" file="scale-solar-system-for-23x35-poster-labeled.jpg"  scale="3">marker</marker>
+      <marker name="7" markerid="7" file="scale-solar-system-for-23x35-poster-labeled.jpg"  scale="3">marker</marker>
       <marker name="3" markerid="3" file="BGR" color="blue">marker</marker>
       <marker name="5" markerid="5" file="BGR" color="red"  scale="" size="">marker</marker>
 
 
       <marker name="4" markerid="4" file="R2D2.png"  scale="4">marker1</marker>
-      <marker name="50" markerid="50" file="soldier.png"  scale="4">marker1</marker>
+      <marker name="5" markerid="5" file="soldier.png"  scale="4">marker1</marker>
       <marker name="2" markerid="2" file="darth-maul-head.png"  scale="4">marker1</marker>
 
 
-      <marker name="6" markerid="160" file="darthvader.jpg"  scale="">marker16</marker>
+      <marker name="6" markerid="6" file="darthvader.png"  scale="2">marker6</marker>
 
 
 
