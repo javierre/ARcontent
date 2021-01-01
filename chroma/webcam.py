@@ -2,8 +2,9 @@ import cv2
 
 cv2.namedWindow("preview")
 
-#internal camera
 cap = cv2.VideoCapture(0)
+#internal camera
+#cap = cv2.VideoCapture(0)
 #external
 #cap = cv2.VideoCapture(1)
 
