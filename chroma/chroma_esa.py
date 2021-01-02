@@ -114,7 +114,7 @@ while(ret):
        img_back = cv2.imread('esa/insectos3.png')
 
     elif k == ord('4'):#11048626:#ord('b'): #2
-       img_back = cv2.imread('esa/arbol.png')
+       img_back = cv2.imread('esa/romeral3.png')
 
     elif k == ord('5'):#11048627:#ord('c'): #3
         img_back = cv2.imread('esa/concavenator3.png')
