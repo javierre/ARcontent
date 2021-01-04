@@ -35,7 +35,7 @@ elif mode=="video":
         ret = False
 
 elif mode=="image":
-    frame = cv2.imread('esa/esashow.jpg')
+    frame = cv2.imread('esa/chroma_original.png')
     cols=frame.shape[1]
     rows=frame.shape[0]
 
@@ -197,5 +197,3 @@ if save_ and mode=="video":
     final_clip = video.set_audio(audio)
     final_clip.write_videofile(videonuevo, codec='libx264', audio_codec="aac")
     os.remove('_aux'+videonuevo)
-
-# Original from https://stackoverflow.com/questions/30509573/writing-an-mp4-video-using-python-opencv
